@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Business Card</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      text-align: center;
+    }
+    .card-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      background-color: #fff;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      padding-bottom: 20px;
+    }
+    #cover {
+      width: 100%;
+      height: 180px;
+      background-image: url('cover.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    #logo-container {
+      margin-top: 20px;
+    }
+    #logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+      background-color: white;
+      object-fit: cover;
+    }
+    #business-name {
+      margin-top: 15px;
+      font-size: 22px;
+      font-weight: 600;
+      color: #111;
+    }
+    #social-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin: 20px 10px;
+    }
+    #social-buttons a {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: #333;
+      border: 1px solid #ccc;
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+    #social-buttons a:hover {
+      transform: scale(1.1);
+    }
+    #social-buttons img {
+      width: 24px;
+      height: 24px;
+    }
+    #about {
+      padding: 20px;
+      background-color: white;
+    }
+    #about h3 {
+      margin-bottom: 10px;
+    }
+    #moreBtn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      background-color: #09130b;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+    #moreBtn:hover {
+      background-color: #218838;
+    }
+    #more-info {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #f9f9f9;
+      border-top: 1px solid #e0e0e0;
+    }
+    footer {
+      background-color: #000;
+      color: #fff;
+      padding: 10px 0;
+      font-size: 14px;
+    }
+    footer a {
+      color: #00ccff;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="card-container">
+    <div id="cover"></div>
+    <div id="logo-container">
+      <img src="logo.jpg" alt="Business Logo" id="logo" />
+    </div>
+    <h1 id="business-name">מוסך רמון</h1>
+    <h5 id="addr">אזור תעשייה שחורת אזור הערבה, אילת</h5>
+
+    <div id="social-buttons">
+      <a href="https://www.facebook.com/people/%D7%9E%D7%95%D7%A1%D7%9A-%D7%A8%D7%9E%D7%95%D7%9F/61555417390858/#" target="_blank"><img src="facebook.png" alt="Facebook" /></a>
+      <a href="https://www.instagram.com/moskhramon?igsh=cmttMGQ0ZjR2cG14" target="_blank"><img src="instagram.png" alt="Instagram" /></a>
+      <a href="tel:086758111"><img src="phone.png" alt="Phone" /></a>
+      <a href="https://ul.waze.com/ul?ll=29.59815353%2C34.97190714&navigate=yes&zoom=17&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location" target="_blank"><img src="waze.png" alt="Waze" /></a>
+      <a href="https://www.eilat-ramon.com/" target="_blank"><img src="website.png" alt="Website" /></a>
+    </div>
+
+    <div id="about">
+      <h3>קצת עלינו</h3>
+      <p>.מוסך רמון באילת הוא הרבה יותר ממוסך – הוא בית חם לרכב שלך. עם ניסיון של למעלה מעשור, אנו מציעים ללקוחותינו שילוב נדיר של מקצועיות בלתי מתפשרת, שירות אישי בגובה העיניים, ואמינות שמחזיקה לאורך זמן. המוסך שלנו פועל תחת רישוי ופיקוח של משרד התחבורה, ועומד בכל התקנים והדרישות המחמירות בתחום הרכב
+
+</p>
+      <li><h3>מקצועיות</h3>אנחנו מתמחים בטיפול בכל סוגי הרכבים – מרכבים פרטיים ועד רכבים כבדים ורכבי שטח, כולל רכבים ייחודיים כמו דודג' ראם, טרקטורונים ורכבי עבודה. בזכות ציוד מתקדם וצוות מקצועי ומנוסה, אנו מסוגלים לאבחן ולטפל בכל תקלה ביסודיות, במהירות וביעילות במוסך רמון תמצא גם מומחיות בתחום החשמל, מיזוג האוויר והתקנת מערכות מתקדמות לרכב – והכול תחת קורת גג אחת, בשקיפות מלאה ותוך הקפדה על סטנדרטים גבוהים של בטיחות ואיכות. לקוחותינו יודעים שהם יכולים לסמוך עלינו, כי אצלנו – כל רכב מקבל את הטיפול שמגיע לו, וכל לקוח מקבל את היחס שהוא ראוי לו</li>
+      <li><h3>מוסך רמון – כשאכפת לך מהרכב שלך, תבחר באנשי המקצוע שמבינים אותך
+</h3></li>
+    </div>
+
+    <button id="moreBtn" onclick="toggleMore()">פרטי מוסך</button>
+    <div id="more-info" style="display: none;">
+      <p><strong>טלפון:</strong> 08-6758111 </p>
+      <p><strong>Whatsapp:</strong> 053-9191040</p>
+      <p><strong>כתובת:</strong> אזור תעשייה שחורת אזור הערבה, אילת</p>
+    </div>
+  </div>
+
+  <footer>
+    Powered and secured by <a href="https://www.wjsinnovations.com/" target="_blank">WJS Digital Innovations ©</a>
+  </footer>
+
+  <script>
+    function toggleMore() {
+      const moreInfo = document.getElementById('more-info');
+      const btn = document.getElementById('moreBtn');
+      if (moreInfo.style.display === 'none') {
+        moreInfo.style.display = 'block';
+        btn.innerText = 'סגירה';
+      } else {
+        moreInfo.style.display = 'none';
+        btn.innerText = 'פרטי מוסך';
+      }
+    }
+
+    // EqualWeb Accessibility Script
+    window.interdeal = {
+      "sitekey": "f17fd74a7c9dbe2a76ebf471c49bed54",
+      "Position": "Left",
+      "domains": {
+        "js": "https://cdn.equalweb.com/",
+        "acc": "https://access.equalweb.com/"
+      },
+      "Menulang": "EN",
+      "btnStyle": {
+        "vPosition": [
+          "80%",
+          "80%"
+        ],
+        "scale": [
+          "0.5",
+          "0.5"
+        ],
+        "color": {
+          "main": "#1c4bb6",
+          "second": "#ffffff"
+        },
+        "icon": {
+          "outline": false,
+          "type": 1,
+          "shape": "semicircle"
+        }
+      }
+    };
+    (function(doc, head, body){
+      var coreCall = doc.createElement('script');
+      coreCall.src = interdeal.domains.js + 'core/5.1.1/accessibility.js';
+      coreCall.defer = true;
+      coreCall.integrity = 'sha512-1bB3F7pVgo0cpVCAy3ZWsOE2ifSiH/MMGyPicY8ykyCBNNScBt7UQLe/LmCIm1oloyzhqN+uUXYos96a/OuHsg==';
+      coreCall.crossOrigin = 'anonymous';
+      coreCall.setAttribute('data-cfasync', true );
+      body ? body.appendChild(coreCall) : head.appendChild(coreCall);
+    })(document, document.head, document.body);
+  </script>
+</body>
+</html>
