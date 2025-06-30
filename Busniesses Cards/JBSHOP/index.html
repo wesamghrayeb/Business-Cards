@@ -30,14 +30,15 @@
     }
 
     #logo {
-      width: 120px;
-      height: 120px;
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
       border: 5px solid #333;
-      background-color: white;
-      object-fit: cover;
+      object-fit: contain;           /* Important: prevents cropping */
+      object-position: center;
+      padding: 2px;                 /* Optional: adds spacing around image */
       box-shadow: 0 0 12px rgba(255,255,255,0.2);
-      margin-top: -60px;
+      margin-top: -80px;
       animation: float 3s ease-in-out infinite, fadeIn 1.5s ease-in-out;
     }
 
@@ -248,39 +249,49 @@
 </script>
 
   <!-- EqualWeb Accessibility Widget -->
-  <script>
-    window.interdeal = {
-      "sitekey": "20bf77c06abfec50d8b057ca18391fb8",
-      "Position": "Left",
-      "domains": {
+<!-- Accessibility Code for "jan-shukha-barbershop.netlify.app" -->
+<script>
+/*
+Want to customize your button? visit our documentation page:
+https://login.equalweb.com/custom-button.taf
+*/
+window.interdeal = {
+    "sitekey": "20bf77c06abfec50d8b057ca18391fb8",
+    "Position": "left",
+    "domains": {
         "js": "https://cdn.equalweb.com/",
         "acc": "https://access.equalweb.com/"
-      },
-      "Menulang": "HE",
-      "btnStyle": {
-        "vPosition": ["80%", "80%"],
-        "scale": ["0.5", "0.5"],
+    },
+    "Menulang": "HE",
+    "btnStyle": {
+        "vPosition": [
+            "80%",
+            "80%"
+        ],
+        "scale": [
+            "0.5",
+            "0.5"
+        ],
         "color": {
-          "main": "#1c4bb6",
-          "second": "#ffffff"
+            "main": "#6e7577",
+            "second": "#ffffff"
         },
         "icon": {
-          "outline": false,
-          "type": 1,
-          "shape": "circle"
+            "outline": false,
+            "type": 12,
+            "shape": "semicircle"
         }
-      }
-    };
-    (function(doc, head, body){
-      var coreCall = doc.createElement('script');
-      coreCall.src = interdeal.domains.js + 'core/5.1.1/accessibility.js';
-      coreCall.defer = true;
-      coreCall.integrity = 'sha512-1bB3F7pVgo0cpVCAy3ZWsOE2ifSiH/MMGyPicY8ykyCBNNScBt7UQLe/LmCIm1oloyzhqN+uUXYos96a/OuHsg==';
-      coreCall.crossOrigin = 'anonymous';
-      coreCall.setAttribute('data-cfasync', true);
-      body ? body.appendChild(coreCall) : head.appendChild(coreCall);
-    })(document, document.head, document.body);
-  </script>
-
+    }
+};
+(function(doc, head, body){
+    var coreCall             = doc.createElement('script');
+    coreCall.src             = interdeal.domains.js + 'core/5.1.13/accessibility.js';
+    coreCall.defer           = true;
+    coreCall.integrity       = 'sha512-70/AbMe6C9H3r5hjsQleJEY4y5l9ykt4WYSgyZj/WjpY/ord/26LWfva163b9W+GwWkfwbP0iLT+h6KRl+LoXA==';
+    coreCall.crossOrigin     = 'anonymous';
+    coreCall.setAttribute('data-cfasync', true );
+    body? body.appendChild(coreCall) : head.appendChild(coreCall);
+})(document, document.head, document.body);
+</script>
 </body>
 </html>
