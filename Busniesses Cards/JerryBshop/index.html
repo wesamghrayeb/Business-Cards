@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jerry Barber Shop</title>
+
+  <!-- Bulma CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+  <!-- AOS (Animate on Scroll) -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+  <style>
+    body {
+      background-color: #111;
+      color: #f5f5f5;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .hero.is-image {
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.85)),
+                  url('logo.png') center center / cover no-repeat;
+      height: 80vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card {
+      animation: slideFromLeft 1.2s ease-out;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(6px);
+      padding: 2rem 2.5rem;
+      border-radius: 16px;
+      display: inline-block;
+      box-shadow: 0 0 30px rgba(0, 204, 255, 0.15);
+      max-width: 500px;
+      margin: 10rem auto 0 auto;
+    }
+
+    @keyframes slideFromLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-100px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    #logo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 5px solid #333;
+      object-fit: contain;           /* Important: prevents cropping */
+      object-position: center;
+      padding: 2px;                 /* Optional: adds spacing around image */
+      box-shadow: 0 0 12px rgba(255,255,255,0.2);
+      margin-top: -80px;
+      animation: float 3s ease-in-out infinite, fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .box {
+      background-color: #1e1e1e;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+
+    .title, .subtitle, .box h3, .box p, .box strong {
+      color: #fff;
+    }
+
+    .social-icons a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 44px;
+      height: 44px;
+      margin: 6px;
+      border-radius: 50%;
+      background-color: #222;
+      border: 1px solid #444;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.1);
+      background-color: #00ccff;
+    }
+
+    .social-icons img {
+      width: 22px;
+      height: 22px;
+      filter: brightness(0.9);
+    }
+
+    .more-btn {
+      margin-top: 1rem;
+    }
+
+    .button.is-dark {
+      background-color: #00ccff;
+      color: #111;
+    }
+
+    .button.is-dark:hover {
+      background-color: #00aacc;
+      color: #fff;
+    }
+
+    #more-info {
+      display: none;
+    }
+
+    footer {
+      background-color: #000;
+      color: #fff;
+      padding: 1rem 0;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #00ccff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media screen and (max-width: 480px) {
+      .hero-body .title {
+        font-size: 1.8rem !important;
+        line-height: 2.2rem !important;
+        white-space: normal !important;
+      }
+
+      .hero-body .subtitle {
+        font-size: 1rem;
+        line-height: 1.4rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🔥 Hero Section -->
+  <section class="hero is-image">
+    <div class="hero-body has-text-centered">
+      <div class="container">
+        <div class="hero-card">
+          <h1 class="title is-2 has-text-white has-text-weight-bold">
+            JERRY BARBER SHOP
+          </h1>
+          <p class="subtitle is-5 has-text-white mt-2">
+            Where modern fades meet classic craft
+          </p>
+          <button class="button is-link is-inverted is-outlined mt-4" onclick="scrollToAbout()">
+            ✦ About Me
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Logo + Social -->
+  <section class="section has-text-centered" data-aos="fade-up">
+    <div class="container">
+      <div id="logo-container">
+        <img src="logo.png" alt="Logo" id="logo" />
+      </div>
+      <h1 class="title is-3 mt-3">JERRY BARBER SHOP</h1>
+      <h2 class="subtitle is-6">Nazareth Hagalil, Israel</h2>
+
+      <div class="social-icons mt-3">
+        <a href="https://wa.me/+972526177394" target="_blank"><img src="whatsapp.png" alt="Whatsapp" /></a>
+        <a href="https://www.instagram.com/jerry_barber95?igsh=ZWR6OHNpdW85YTVr" target="_blank"><img src="instagram.png" alt="Instagram" /></a>
+        <a href="tel:+972526177394"><img src="phone.png" alt="Phone" /></a>
+        <a href="https://waze.com/ul/hsvc45f1t4" target="_blank"><img src="waze.png" alt="Waze" /></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section has-text-centered" data-aos="fade-up" id="about">
+    <div class="container">
+      <div class="box">
+        <h3 class="title is-4">About Me</h3>
+        <p class="mb-3">
+          I'm a dedicated barber with a passion for style, detail, and customer care. My goal is to make every client look and feel their best in a relaxed and welcoming environment.
+        </p>
+        <p class="mb-3">
+          <strong>Experience:</strong><br>
+          With over <b><script>document.write(new Date().getFullYear() - 2015);</script></b> years of experience, I specialize in modern fades, classic cuts, and beard grooming.
+        </p>
+        <p><strong>Precision, trends, and hospitality are the foundation of my craft.</strong></p>
+
+        <button class="button is-dark is-small more-btn" onclick="toggleMore()">More Info</button>
+
+        <div id="more-info" class="mt-4">
+          <p><strong>Phone:</strong> 050-1234567</p>
+          <p><strong>Location:</strong>Ksulot Nof Hagalil, Israel</p>
+          <p><strong>Working Hours:</strong><br>
+            Mon – Sat: 11:00–19:00<br>
+            Sunday: Closed
+          </p>
+          <p><strong>Specialties:</strong> Modern fades • Beard sculpting • Classic cuts</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    Powered and secured by <a href="https://wesamghrayeb.netlify.app/" target="_blank">Wesam Engineering</a> ©
+  </footer>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+
+  <!-- Scroll + Toggle -->
+  <script>
+    function scrollToAbout() {
+      const element = document.getElementById('about');
+      const yOffset = -80;
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+
+    function toggleMore() {
+      const moreInfo = document.getElementById('more-info');
+      const btn = document.querySelector('.more-btn');
+      if (moreInfo.style.display === 'none' || moreInfo.style.display === '') {
+        moreInfo.style.display = 'block';
+        btn.innerText = 'Less Info';
+      } else {
+        moreInfo.style.display = 'none';
+        btn.innerText = 'More Info';
+      }
+    }
+  </script>
+
+<!-- Accessibility Code for "jerry-barbershop.netlify.app" -->
+<script>
+/*
+Want to customize your button? visit our documentation page:
+https://login.equalweb.com/custom-button.taf
+*/
+window.interdeal = {
+    "sitekey": "22b4977654b9d2e6121f59d9fda4fa6c",
+    "Position": "Left",
+    "domains": {
+        "js": "https://cdn.equalweb.com/",
+        "acc": "https://access.equalweb.com/"
+    },
+    "Menulang": "HE",
+    "btnStyle": {
+        "vPosition": [
+            "80%",
+            "80%"
+        ],
+        "scale": [
+            "0.5",
+            "0.5"
+        ],
+        "color": {
+            "main": "#6e7577",
+            "second": "#ffffff"
+        },
+        "icon": {
+            "outline": false,
+            "type": 1,
+            "shape": "semicircle"
+        }
+    }
+};
+(function(doc, head, body){
+    var coreCall             = doc.createElement('script');
+    coreCall.src             = interdeal.domains.js + 'core/5.1.13/accessibility.js';
+    coreCall.defer           = true;
+    coreCall.integrity       = 'sha512-70/AbMe6C9H3r5hjsQleJEY4y5l9ykt4WYSgyZj/WjpY/ord/26LWfva163b9W+GwWkfwbP0iLT+h6KRl+LoXA==';
+    coreCall.crossOrigin     = 'anonymous';
+    coreCall.setAttribute('data-cfasync', true );
+    body? body.appendChild(coreCall) : head.appendChild(coreCall);
+})(document, document.head, document.body);
+</script>
+
+</body>
+</html>
