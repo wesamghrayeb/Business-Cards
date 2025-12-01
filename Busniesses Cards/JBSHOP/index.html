@@ -5,247 +5,665 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JAN SHUKHA BARBERSHOP</title>
 
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  
   <!-- Bulma CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
   <!-- AOS (Animate on Scroll) -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
   <style>
-    body {
-      background-color: #121212;
-      color: #e0e0e0;
+    :root {
+      --primary-color: #d4af37;
+      --primary-dark: #b8941f;
+      --secondary-color: #1a1a1a;
+      --accent-color: #f5f5f5;
+      --text-light: #e8e8e8;
+      --text-muted: #a0a0a0;
+      --gradient-primary: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+      --gradient-dark: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     }
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0a0a0a;
+      color: var(--text-light);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Smooth Scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Hero Section */
     .hero.is-image {
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.85)),
-                  url('logo.jpg') center center / cover no-repeat;
-      height: 80vh;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.65) 100%),
+                  url('cover.jpg') center center / cover no-repeat fixed;
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero.is-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1.5rem;
+      text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.8);
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      color: var(--text-light);
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+      letter-spacing: 1px;
+      opacity: 0.95;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: var(--gradient-primary);
+      color: #000;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+      letter-spacing: 0.5px;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+      background: linear-gradient(135deg, #f4d03f 0%, #d4af37 100%);
+    }
+
+    .cta-button:active {
+      transform: translateY(-1px);
+    }
+
+    /* Logo Section */
+    .logo-section {
+      padding: 6rem 1.5rem 4rem;
+      background: var(--gradient-dark);
+      position: relative;
+    }
+
+    .logo-section::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    }
+
+    #logo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 4px solid var(--primary-color);
+      object-fit: contain;
+      object-position: center;
+      padding: 8px;
+      box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3),
+                  0 0 0 8px rgba(212, 175, 55, 0.1);
+      margin: -100px auto 2rem;
+      background: #1a1a1a;
+      animation: float 4s ease-in-out infinite, fadeIn 1.5s ease-out;
+      transition: transform 0.3s ease;
+    }
+
+    #logo:hover {
+      transform: scale(1.05) translateY(-5px);
+      box-shadow: 0 25px 70px rgba(212, 175, 55, 0.4),
+                  0 0 0 8px rgba(212, 175, 55, 0.15);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px) scale(0.9); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .business-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+    }
+
+    .business-location {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      letter-spacing: 0.5px;
+    }
+
+    /* Social Icons */
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .social-icons a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    #logo {
-      width: 180px;
-      height: 180px;
+    .social-icons a::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
       border-radius: 50%;
-      border: 5px solid #333;
-      object-fit: contain;           /* Important: prevents cropping */
-      object-position: center;
-      padding: 2px;                 /* Optional: adds spacing around image */
-      box-shadow: 0 0 12px rgba(255,255,255,0.2);
-      margin-top: -80px;
-      animation: float 3s ease-in-out infinite, fadeIn 1.5s ease-in-out;
+      background: var(--gradient-primary);
+      transform: translate(-50%, -50%);
+      transition: width 0.4s ease, height 0.4s ease;
     }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-
-    .box {
-      background-color: #1e1e1e;
-      border-radius: 10px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
-    }
-
-    .title, .subtitle, .box h3, .box p, .box strong {
-      color: #f0f0f0;
-    }
-
-    .social-icons a {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      width: 44px;
-      height: 44px;
-      margin: 6px;
-      border-radius: 50%;
-      background-color: #222;
-      border: 1px solid #444;
-      transition: transform 0.2s ease, background-color 0.3s ease;
+    .social-icons a:hover::before {
+      width: 100%;
+      height: 100%;
     }
 
     .social-icons a:hover {
-      transform: scale(1.1);
-      background-color: #00ccff;
+      transform: translateY(-5px) scale(1.1);
+      border-color: var(--primary-color);
+      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
     }
 
     .social-icons img {
-      width: 22px;
-      height: 22px;
-      filter: brightness(0.9);
+      width: 24px;
+      height: 24px;
+      filter: brightness(1.1);
+      position: relative;
+      z-index: 1;
+      transition: filter 0.3s ease;
+    }
+
+    .social-icons a:hover img {
+      filter: brightness(0) invert(0);
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 5rem 1.5rem;
+      background: #0f0f0f;
+    }
+
+    .about-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 3rem;
+      border: 1px solid rgba(212, 175, 55, 0.1);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      max-width: 900px;
+      margin: 0 auto;
+      transition: all 0.4s ease;
+    }
+
+    .about-card:hover {
+      border-color: rgba(212, 175, 55, 0.3);
+      box-shadow: 0 25px 70px rgba(212, 175, 55, 0.1);
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 2rem;
+      text-align: center;
+      letter-spacing: 1px;
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--gradient-primary);
+      border-radius: 2px;
+    }
+
+    .about-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .about-text strong {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    .experience-badge {
+      display: inline-block;
+      background: var(--gradient-primary);
+      color: #000;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin: 0.5rem;
+      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
     }
 
     .more-btn {
-      margin-top: 1rem;
+      margin-top: 2rem;
+      padding: 0.875rem 2rem;
+      background: transparent;
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
     }
 
-    .button.is-dark {
-      background-color: #00ccff;
-      color: #111;
-    }
-
-    .button.is-dark:hover {
-      background-color: #00aacc;
-      color: #fff;
+    .more-btn:hover {
+      background: var(--gradient-primary);
+      color: #000;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
     }
 
     #more-info {
       display: none;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+      animation: slideDown 0.5s ease;
     }
 
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .info-item {
+      background: rgba(212, 175, 55, 0.05);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 3px solid var(--primary-color);
+    }
+
+    .info-item strong {
+      display: block;
+      color: var(--primary-color);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-item p {
+      color: var(--text-light);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .info-item a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .info-item a:hover {
+      color: #f4d03f;
+      text-decoration: underline;
+    }
+
+    /* Footer */
     footer {
-      background-color: #000;
-      color: #fff;
-      padding: 1rem 0;
+      background: #000;
+      color: var(--text-muted);
+      padding: 2rem 0;
       text-align: center;
-      font-size: 14px;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     footer a {
-      color: #00ccff;
+      color: var(--primary-color);
       text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
     }
 
     footer a:hover {
+      color: #f4d03f;
       text-decoration: underline;
     }
-    @media screen and (max-width: 480px) {
-  .hero-body .title {
-    font-size: 1.8rem !important;
-    line-height: 2.2rem !important;
-    white-space: normal !important;
-  }
 
-  .hero-body .subtitle {
-    font-size: 1rem;
-    line-height: 1.4rem;
-  }
-}
+    /* Responsive Design */
+    @media screen and (max-width: 768px) {
+      .hero.is-image {
+        min-height: 90vh;
+      }
+
+      .logo-section {
+        padding: 5rem 1rem 3rem;
+      }
+
+      #logo {
+        width: 160px;
+        height: 160px;
+        margin-top: -80px;
+      }
+
+      .about-card {
+        padding: 2rem 1.5rem;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .social-icons a {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+
+      .cta-button {
+        padding: 0.875rem 2rem;
+        font-size: 0.9rem;
+      }
+
+      .business-name {
+        font-size: 1.75rem;
+      }
+
+      .about-text {
+        font-size: 1rem;
+      }
+    }
+
+    /* Scroll Animations */
+    [data-aos] {
+      pointer-events: none;
+    }
+
+    [data-aos].aos-animate {
+      pointer-events: auto;
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- 🔥 Hero Section with Image Background -->
+  <!-- Hero Section -->
   <section class="hero is-image">
-<div class="hero-body has-text-centered">
-  <div class="container" data-aos="fade-up">
-<div style="
-  margin: 10rem auto 0 auto;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(5px);
-  padding: 2rem 2.5rem;
-  border-radius: 16px;
-  display: inline-block;
-  box-shadow: 0 0 30px rgba(0, 204, 255, 0.15);
-  max-width: 500px;
-">
-      <h1 class="title is-2 has-text-white has-text-weight-bold" style="letter-spacing: 1px; word-break: keep-all; white-space: nowrap; overflow-wrap: normal;">
-        JAN SHUKHA<br>BARBERSHOP<br>💈
-      </h1>
-      <p class="subtitle is-5 has-text-grey-light mt-2">
-        Where modern style meets classic craft
-      </p>
-       <button class="button is-link is-inverted is-outlined mt-4"
-         onclick="scrollToLogo()">
-         ✦ Explore Me
-       </button>
+    <div class="hero-body">
+      <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+        <h1 class="hero-title">JAN SHUKHA<br>BARBERSHOP</h1>
+        <p class="hero-subtitle">Where modern style meets classic craft</p>
+        <button class="cta-button" onclick="scrollToLogo()">
+          Discover More
+        </button>
+      </div>
     </div>
-  </div>
-</div>
   </section>
 
-  <!-- Logo + Social -->
-  <section class="section has-text-centered" data-aos="fade-up">
-    <div class="container">
+  <!-- Logo + Social Section -->
+  <section class="logo-section" data-aos="fade-up" data-aos-duration="800">
+    <div class="container has-text-centered">
       <div id="logo-container">
-        <img src="logo.jpg" alt="Business Logo" id="logo" />
+        <img src="logo.jpg" alt="JAN SHUKHA BARBERSHOP Logo" id="logo" />
       </div>
-      <h1 class="title is-3 mt-3">JAN SHUKHA BARBERSHOP</h1>
-      <h2 class="subtitle is-6">5002 Nazareth Hagalil, Israel</h2>
+      <h1 class="business-name">JAN SHUKHA BARBERSHOP</h1>
+      <p class="business-location">5002 Nazareth Hagalil, Israel</p>
 
-      <div class="social-icons mt-3">
-        <a href="https://wa.me/+972524852854" target="_blank"><img src="whatsapp.png" alt="Whatsapp" /></a>
-        <a href="https://www.instagram.com/janshokha/" target="_blank"><img src="instagram.png" alt="Instagram" /></a>
-        <a href="tel:0524852854"><img src="phone.png" alt="Phone" /></a>
-        <a href="https://waze.com/ul/hsvc456q05" target="_blank"><img src="waze.png" alt="Waze" /></a>
+      <div class="social-icons">
+        <a href="https://wa.me/+972524852854" target="_blank" aria-label="WhatsApp">
+          <img src="whatsapp.png" alt="WhatsApp" />
+        </a>
+        <a href="https://www.instagram.com/janshokha/" target="_blank" aria-label="Instagram">
+          <img src="instagram.png" alt="Instagram" />
+        </a>
+        <a href="tel:0524852854" aria-label="Phone">
+          <img src="phone.png" alt="Phone" />
+        </a>
+        <a href="https://waze.com/ul/hsvc456q05" target="_blank" aria-label="Waze">
+          <img src="waze.png" alt="Waze" />
+        </a>
       </div>
     </div>
   </section>
 
   <!-- About Section -->
-  <section class="section" data-aos="fade-up">
+  <section class="about-section" data-aos="fade-up" data-aos-duration="800">
     <div class="container">
-      <div class="box has-text-centered">
-        <h3 class="title is-4">About Me</h3>
-        <p class="mb-3">
-          My name is Jan Shukha. I'm a professional barber with over
-          <b><script>document.write(new Date().getFullYear() - 2016);</script></b> years of experience in the grooming industry.
-          I take pride in combining style, technique, and personal attention to detail in every haircut and beard trim.
-        </p>
-        <p class="mb-3">
-          <strong>Experience:</strong><br>
-          Started in 2016 | Specializing in men's haircuts, beard styling & personal grooming<br>
-          High-level service, warm hospitality, and a relaxed, welcoming atmosphere.
-        </p>
-        <p><strong>Welcome to where style meets precision.</strong></p>
+      <div class="about-card">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-text">
+          <p>
+            My name is <strong>Jan Shukha</strong>. I'm a professional barber with over
+            <span class="experience-badge"><script>document.write(new Date().getFullYear() - 2016);</script> Years</span>
+            of experience in the grooming industry.
+          </p>
+          <p>
+            I take pride in combining style, technique, and personal attention to detail in every haircut and beard trim.
+          </p>
+          <p style="margin-top: 1.5rem;">
+            <strong>Experience:</strong><br>
+            Started in 2016 | Specializing in men's haircuts, beard styling & personal grooming<br>
+            High-level service, warm hospitality, and a relaxed, welcoming atmosphere.
+          </p>
+          <p style="margin-top: 1.5rem; font-size: 1.2rem;">
+            <strong>Welcome to where style meets precision.</strong>
+          </p>
+        </div>
 
-        <button class="button is-dark is-small more-btn" onclick="toggleMore()">More Info</button>
+        <div style="text-align: center;">
+          <button class="more-btn" onclick="toggleMore()">More Info</button>
+        </div>
 
-      <div id="more-info" class="mt-4">
-        <p><strong>Phone:</strong> 052-4852854</p>
-        <p><strong>Address:</strong> 5002 Nazareth Hagalil</p>
-        <p><strong>Working Hours:</strong><br>
-          <b>Monday – Saturday: 10:00–20:00<br>
-          Sunday & Monday: Closed</p></b>
-        <p><strong>Services:</strong><br>
-          Haircut • Beard Trim • Styling</p>
-        <p><strong>Instagram:</strong>
-          <a href="https://www.instagram.com/janshokha/" target="_blank">@janshokha</a></p>
-      </div>
+        <div id="more-info">
+          <div class="info-grid">
+            <div class="info-item">
+              <strong>Phone</strong>
+              <p><a href="tel:0524852854">052-4852854</a></p>
+            </div>
+            <div class="info-item">
+              <strong>Address</strong>
+              <p>5002 Nazareth Hagalil</p>
+            </div>
+            <div class="info-item">
+              <strong>Working Hours</strong>
+              <p>
+                Monday – Saturday: 10:00–20:00<br>
+                Sunday: Closed
+              </p>
+            </div>
+            <div class="info-item">
+              <strong>Services</strong>
+              <p>Haircut • Beard Trim • Styling</p>
+            </div>
+            <div class="info-item">
+              <strong>Instagram</strong>
+              <p>
+                <a href="https://www.instagram.com/janshokha/" target="_blank">@janshokha</a>
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    Powered and secured by <a href="https://wesamghrayeb.netlify.app/" target="_blank">Wesam Engineering</a> ©
+    <p>Powered and secured by <a href="https://wesamghrayeb.com/" target="_blank">Wesam Engineering</a> © <script>document.write(new Date().getFullYear());</script></p>
   </footer>
 
-  <!-- AOS -->
+  <!-- AOS Animation Library -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
-
-  <!-- More Info Toggle -->
   <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      offset: 100
+    });
+  </script>
+
+  <!-- Custom Scripts -->
+  <script>
+    // Smooth scroll to logo section
+    function scrollToLogo() {
+      const element = document.getElementById('logo-container');
+      const yOffset = -80;
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+
+    // Toggle more info section
     function toggleMore() {
       const moreInfo = document.getElementById('more-info');
       const btn = document.querySelector('.more-btn');
+      
       if (moreInfo.style.display === 'none' || moreInfo.style.display === '') {
         moreInfo.style.display = 'block';
-        moreInfo.style.animation = 'fadeIn 0.6s ease';
+        moreInfo.style.animation = 'slideDown 0.5s ease';
         btn.innerText = 'Less Info';
+        // Smooth scroll to expanded section
+        setTimeout(() => {
+          moreInfo.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
       } else {
         moreInfo.style.display = 'none';
         btn.innerText = 'More Info';
       }
     }
-  </script>
-  <script>
-  function scrollToLogo() {
-    const element = document.getElementById('logo-container');
-    const yOffset = -100; // כמה פיקסלים לפני תחילת האלמנט
-    const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
-    window.scrollTo({ top: y, behavior: 'smooth' });
-  }
-</script>
+    // Add parallax effect to hero section
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const hero = document.querySelector('.hero.is-image');
+      if (hero) {
+        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+      }
+    });
+
+    // Add intersection observer for fade-in animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 
   <!-- EqualWeb Accessibility Widget -->
 <!-- Accessibility Code for "jan-shukha-barbershop.netlify.app" -->
